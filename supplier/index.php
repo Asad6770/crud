@@ -22,20 +22,21 @@ $data = select('supplier', '*');
         </thead>
         <tbody>
             <?php 
-       foreach ($data as $value) {        
-        echo ' <tr>
-        <th scope="row">'.$value['id'].'</th>
-        <td>'.$value['name'].'</td>
-        <td>'.$value['address'].'</td>
-        <td>'.$value['mobile'].'</td>
-        <td>'.$value['bank'].'</td>
-        <td class="text-center">
-        <a class="text-white btn btn-success load" href="edit.php?id='.$value['id'].'"data-toggle="modal" data-target="#exampleModal">Update</a> |
-        <a class="text-white btn btn-danger" href="process.php?id='.$value['id'].'&type=delete">Delete</a> |
-        <a class="text-white btn btn-info " href="'.$BASE_URL.'/purchase/index.php?id='.$value['id'].'">View</a>    
-        </td>
-        </tr>';
-      } ?>
+                foreach ($data as $value) {        
+                    echo ' <tr>
+                    <th scope="row">'.$value['id'].'</th>
+                    <td>'.$value['name'].'</td>
+                    <td>'.$value['address'].'</td>
+                    <td>'.$value['mobile'].'</td>
+                    <td>'.$value['bank'].'</td>
+                    <td class="text-center">
+                    <a class="text-white btn btn-success load" href="edit.php?id='.$value['id'].'"data-toggle="modal" data-target="#exampleModal">Update</a> |
+                    <a class="text-white btn btn-danger" href="process.php?id='.$value['id'].'&type=delete">Delete</a> |
+                    <a class="text-white btn btn-info " href="'.$BASE_URL.'/purchase/index.php?id='.$value['id'].'">View</a>    
+                    </td>
+                    </tr>';     
+                } 
+            ?>
         </tbody>
     </table>
 </div>

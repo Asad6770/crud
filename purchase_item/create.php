@@ -36,10 +36,7 @@ $product = select('product', '*');
         <label for="InputPrice">Price</label>
         <input type="text" class="form-control" name="price" id="InputPrice" required>
     </div>
-    <div class="form-group">
-        <label for="InputType">Type</label>
-        <input type="text" class="form-control" name="itemType" id="InputType" required>
-    </div>
+    
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Submit</button>

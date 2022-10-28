@@ -19,7 +19,6 @@ $data = select('purchase_item', '*');
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">QTY</th>
-                <th scope="col">Type</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -33,7 +32,6 @@ $data = select('purchase_item', '*');
         <td>'.$value['name'].'</td>
         <td>'.$value['price'].'</td>
         <td>'.$value['qty'].'</td>
-        <td>'.$value['type'].'</td>
         <td>
         <a class="text-white btn btn-success load" href="edit.php?id='.$value['id'].'"data-toggle="modal" data-target="#exampleModal">Update</a> |
         <a class="text-white btn btn-danger" href="process.php?id='.$value['id'].'">Delete</a>        

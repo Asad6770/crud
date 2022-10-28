@@ -6,10 +6,13 @@ require_once '..\function.php';
 $where = 'id=' . $_GET['id'];
 //calling select function
 $data = select('purchase', '*', $where);
-$row = $data[0];
-$weight = $row['weight'];
+    $row = $data[0];
+    $weight = $row['weight'];
+    $id = $row['supplier_id'];
+
 $supplier = select('supplier', '*');
-//$id = $data[0]['id'];
+    $supplier_id = $supplier[0];
+    $supplier_id = $supplier_id['id']; 
 
 ?>
 
@@ -20,9 +23,15 @@ $supplier = select('supplier', '*');
         <label for="InputSupplierID">Supplier ID</label>
         <select class="form-control" name="supplierid" id="InputSupplierID">
             <option>Select Supplier ID</option>
-            <?php  foreach ($supplier as $value) {        
-        echo ' <option value="'.$value['id'].'">'.$value['name'].'</option>';
-      }?>
+            <?php
+                foreach ($supplier as $value) {        
+                    echo ' <option value='.$value['id'];
+                        if ($value['id'] == $id) {
+                            echo 'selected = selected';
+                        }
+                    echo '>'.$value['name'].'</option>';
+                }
+            ?>
         </select>
     </div>
     <div class="form-group">

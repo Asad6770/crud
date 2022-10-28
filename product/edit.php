@@ -6,16 +6,16 @@ require '..\function.php';
 // get id
 $where = 'id=' . $_GET['id'];
 //calling select function
-$data = select('product', '*', $where);
+
 $supplier = select('supplier', '*');
-$purchase_item = select('purchase_item', '*');
-$row = $data[0];
-$id = $row['id'];
-$supplier_id = $row['supplier_id'];
-$name = $row['name'];
-$price = $row['price'];
-$qty = $row['qty'];
-$type = $row['type'];
+
+$data = select('product', '*', $where);
+    $row = $data[0];
+    $supplier_id = $row['supplier_id'];
+    $name = $row['name'];
+    $price = $row['price'];
+    $qty = $row['qty'];
+    $type = $row['type'];
 ?>
 
 <form action="process.php" method="post" id="insertForm" enctype="multipart/form-data" class="submitData">
@@ -25,14 +25,15 @@ $type = $row['type'];
         <label for="InputSupplierID">Supplier ID</label>
         <select class="form-control" name="supplierId" id="InputSupplierID">
             <option>Select Supplier ID</option>
-            <?php  foreach ($supplier as $value) {        
-            echo ' <option value="'.$value['id'].'"
-            '.if ($value['id'] == $supplier_id) {
-                echo ' selected="selected"'; 
-            }.'
-            >'.
-            echo $value['name'].'</option>';
-      }?>
+            <?php  
+                foreach ($supplier as $value) {        
+                    echo ' <option value='.$value['id'];
+                        if ($value['id'] == $supplier_id) {
+                            echo 'selected = selected';
+                        }
+                    echo '>'.$value['name'].'</option>';
+                }
+            ?>
         </select>
     </div>
     <div class="form-group">
@@ -48,13 +49,8 @@ $type = $row['type'];
         <input type="text" class="form-control" id="inputPrice" name="price" value="<?php echo $price ?>" required>
     </div>
     <div class="form-group">
-        <label for="InputType">Type</label>
-        <select class="form-control" name="itemType" id="InputType">
-            <option>Select Type</option>
-            <?php  foreach ($purchase_item as $value) {        
-        echo ' <option value="'.$value['type'].'">'.$value['type'].'</option>';
-      }?>
-        </select>
+        <label for="inputType">Type</label>
+        <input type="text" class="form-control" id="inputType" name="itemType" value="<?php echo $type ?>" required>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

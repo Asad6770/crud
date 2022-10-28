@@ -23,19 +23,20 @@ $data = select('sale_item', '*');
         </thead>
         <tbody>
             <?php 
-       foreach ($data as $value) {        
-        echo ' <tr>
-        <th scope="row">'.$value['id'].'</th>
-        <td>'.$value['product_id'].'</td>
-        <td>'.$value['sale_id'].'</td>
-        <td>'.$value['name'].'</td>
-        <td>'.$value['type'].'</td>
-        <td>
-        <a class="text-white btn btn-success load" href="edit.php?id='.$value['id'].'"data-toggle="modal" data-target="#exampleModal">Update</a> |
-        <a class="text-white btn btn-danger" href="process.php?id='.$value['id'].'">Delete</a>        
-        </td>
-        </tr>';
-      } ?>
+                foreach ($data as $value) {        
+                    echo ' <tr>
+                    <th scope="row">'.$value['id'].'</th>
+                    <td>'.$value['product_id'].'</td>
+                    <td>'.$value['sale_id'].'</td>
+                    <td>'.$value['name'].'</td>
+                    <td>'.$value['type'].'</td>
+                    <td>
+                    <a class="text-white btn btn-success load" href="edit.php?id='.$value['id'].'"data-toggle="modal" data-target="#exampleModal">Update</a> |
+                    <a class="text-white btn btn-danger" href="process.php?id='.$value['id'].'">Delete</a>        
+                    </td>
+                    </tr>';
+                } 
+            ?>
         </tbody>
     </table>
 </div>

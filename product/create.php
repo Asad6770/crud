@@ -28,12 +28,7 @@ require_once '../function.php';
     </div>
     <div class="form-group">
         <label for="InputType">Type</label>
-        <select class="form-control" name="itemType" id="InputType">
-            <option>Select Type</option>
-            <?php  foreach ($purchase_item as $value) {        
-        echo ' <option value="'.$value['type'].'">'.$value['type'].'</option>';
-      }?>
-        </select>
+        <input type="text" class="form-control" name="itemType" id="InputType" required>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

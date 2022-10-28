@@ -33,8 +33,7 @@ if (@$_GET['id']) {
 	$where = 'id=' .$_GET['id']; 
 	$insert = delete('supplier', $where);
 	echo json_encode($insert);
-	header('location: 
-		index.php');
+	header('location: index.php');
 	exit();
 };
 // supplier section end

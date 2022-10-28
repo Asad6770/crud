@@ -2,7 +2,6 @@
 require_once '../function.php';
 $sale = select('sale', '*');
 $product = select('product', '*');
-$purchase_item = select('purchase_item', '*');
 ?>
 <form action="process.php" method="post" id="insertForm" class="submitData">
     <input type="hidden" class="form-control" name="type" value="create">
@@ -33,7 +32,7 @@ $purchase_item = select('purchase_item', '*');
         <label for="InputType">Type</label>
         <select class="form-control" name="itemType" id="InputType">
             <option>Select Type</option>
-            <?php  foreach ($purchase_item as $value) {        
+            <?php  foreach ($product as $value) {        
       echo ' <option value="'.$value['type'].'">'.$value['type'].'</option>';
     }?>
         </select>

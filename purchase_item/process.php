@@ -10,8 +10,7 @@ if (@$_POST['type'] == 'create') {
 		'purchase_id' => $_POST['purchaseId'],
 		'name' => $_POST['name'],
 		'price' => $_POST['price'],
-		'qty' => $_POST['qty'],
-		'type' => $_POST['itemType']
+		'qty' => $_POST['qty']
 	];
 	$insert = insert('purchase_item', $data);
 	echo json_encode($insert);
@@ -25,8 +24,7 @@ if (@$_POST['type'] == 'edit') {
 		'purchase_id' => $_POST['purchaseId'],
 		'name' => $_POST['name'],
 		'price' => $_POST['price'],
-		'qty' => $_POST['qty'],
-		'type' => $_POST['itemType']
+		'qty' => $_POST['qty']
 	];
 	$where = 'id= ' . $_POST['id'];
 	$insert = update('purchase_item', $data, $where);
