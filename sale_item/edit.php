@@ -7,12 +7,12 @@ $where = 'id=' . $_GET['id'];
 $sale = select('sale', '*');
 $product = select('product', '*');
 $data = select('sale_item', '*', $where);
-$row = $data[0];
-$id = $row['id'];
-$product_id = $row['product_id'];
-$sale_id = $row['sale_id'];
-$name = $row['name'];
-$type = $row['type'];
+    $row = $data[0];
+    $id = $row['id'];
+    $product_id = $row['product_id'];
+    $sale_id = $row['sale_id'];
+    $name = $row['name'];
+    $type = $row['type'];
 ?>
 
 <form action="process.php" method="post" id="insertForm" enctype="multipart/form-data" class="submitData">

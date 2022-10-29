@@ -118,7 +118,7 @@ function select($table, $columns = '*', $where = NULL, $order_by = NULL, $limit 
 
 function query($q){
 	global $conn;
-	$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($conn, $q);
 	if ($result) {
 		$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 		return $data;
@@ -129,7 +129,7 @@ function query($q){
 			'msg' => 'Connection failed: '.mysqli_error($conn),
 		);
 	}
-	return $msg;
+	return true;
 }
 ?>
 
