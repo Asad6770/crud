@@ -1,19 +1,17 @@
 <?php 
-include '../header.php';
+    include '../header.php';
 
-
-
-if (@$_GET['id']) {
-    $where = $_GET['id'];
-    $data = select('purchase', '*', "supplier_id='$where'");
-//    $q = 'SELECT purchase.*, supplier.name as supplier_name FROM purchase INNER JOIN supplier on purchase.supplier_id = supplier.id;';
-//    $data = query($q);
-}
-else {
-   // $data = select('purchase', '*');
-   $q = 'SELECT purchase.*, supplier.name as supplier_name FROM purchase INNER JOIN supplier on purchase.supplier_id = supplier.id;';
-$data = query($q);
-}
+    if (@$_GET['id']) {
+        $where = $_GET['id'];
+         $data = select('purchase', '*', "supplier_id='$where'");
+        //  $q = 'SELECT purchase.*, supplier.name as supplier_name FROM purchase INNER JOIN supplier on purchase.supplier_id = supplier.id;';
+        //   $data = query($q);
+    }
+    else {
+        // $data = select('purchase', '*');
+        $q = 'SELECT purchase.*, supplier.name as supplier_name FROM purchase INNER JOIN supplier on purchase.supplier_id = supplier.id;';
+        $data = query($q);
+    }
 
 ?>
 <!-- Modal -->
