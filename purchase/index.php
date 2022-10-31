@@ -3,13 +3,24 @@
 
     if (@$_GET['id']) {
         $where = $_GET['id'];
-         $data = select('purchase', '*', "supplier_id='$where'");
-        //  $q = 'SELECT purchase.*, supplier.name as supplier_name FROM purchase INNER JOIN supplier on purchase.supplier_id = supplier.id;';
-        //   $data = query($q);
+        // $data = select('purchase', '*', "supplier_id='$where'");
+            $q = 'SELECT purchase.*, supplier.name 
+            AS supplier_name
+            FROM purchase 
+            INNER JOIN supplier 
+            ON purchase.supplier_id = supplier.id 
+            WHERE purchase.supplier_id = '.$where;
+            $data = query($q);
+        //    print_r($data);
+        //    exit();
     }
     else {
         // $data = select('purchase', '*');
-        $q = 'SELECT purchase.*, supplier.name as supplier_name FROM purchase INNER JOIN supplier on purchase.supplier_id = supplier.id;';
+        $q = 'SELECT purchase.*, supplier.name 
+        as supplier_name 
+        FROM purchase 
+        INNER JOIN supplier 
+        ON purchase.supplier_id = supplier.id;';
         $data = query($q);
     }
 
@@ -36,15 +47,15 @@
             <?php 
                 foreach ($data as $value) {       
                     echo  ' <tr>
-                    <th scope="row">'.$value['id'].'</th>
-                    <td>'.$value['supplier_id'].'</td>
-                    <td>'.$value['supplier_name'].'</td>
-                    <td>'.$value['weight'].' KG</td>
-                    <td>'.date_format( new DateTime($value['timeDate']), 'd-F-Y h:i:s' ).'</td>
-                    <td>
-                    <a class="text-white btn btn-success load" href="edit.php?id='.$value['id'].'"data-toggle="modal" data-target="#exampleModal">Update</a> |
-                    <a class="text-white btn btn-danger" href="process.php?id='.$value['id'].'&type=delete">Delete</a>        
-                    </td>
+                        <th scope="row">'.$value['id'].'</th>
+                        <td>'.$value['supplier_id'].'</td>
+                        <td>'.$value['supplier_name'].'</td>
+                        <td>'.$value['weight'].' KG</td>
+                        <td>'.date_format( new DateTime($value['timeDate']), 'd-F-Y h:i:s' ).'</td>
+                        <td>
+                        <a class="text-white btn btn-success load" href="edit.php?id='.$value['id'].'"data-toggle="modal" data-target="#exampleModal">Update</a> |
+                        <a class="text-white btn btn-danger" href="process.php?id='.$value['id'].'&type=delete">Delete</a>        
+                        </td>
                     </tr>';
                 }
             ?>
